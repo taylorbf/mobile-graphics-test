@@ -1,0 +1,37 @@
+<html>
+<body>
+
+  <div id="viz"></div>
+  <style>
+    #viz {
+      width:40px;
+      height:40px;
+      border-radius:20px;
+      position:absolute;
+      background-color:blue;
+      top:0px;
+      left:0px;
+    }
+  </style>
+  <script>
+
+    var circle = document.getElementById("viz")
+
+    document.addEventListener("mousemove",function(e) {
+      viz.style.top = e.pageY
+      viz.style.left = e.pageX
+    })
+    document.addEventListener("touchmove",function(e) {
+
+      x = e.targetTouches[0].pageX;
+      y = e.targetTouches[0].pageY;
+
+      viz.style.top = x
+      viz.style.left = y
+
+      e.preventDefault()
+    })
+
+  </script>
+</body>
+</html>
