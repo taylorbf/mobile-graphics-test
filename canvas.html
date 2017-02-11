@@ -1,0 +1,25 @@
+<html>
+<body>
+
+  <canvas id="viz"></canvas>
+
+
+  <script>
+
+    var canvas = document.getElementById("viz")
+    var ctx = canvas.getContext("2d")
+
+    document.addEventListener("mousemove",function(e) {
+      with(ctx) {
+        clearRect(0,0,canvas.width,canvas.height)
+        fillStyle="#a0a"
+        beginPath()
+          arc(e.pageX-10,e.pageY-10,20,0,Math.PI*2,false)
+        closePath()
+        fill()
+      }
+    })
+
+  </script>
+</body>
+</html>
