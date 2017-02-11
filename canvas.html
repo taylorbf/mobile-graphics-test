@@ -8,6 +8,8 @@
 
     var canvas = document.getElementById("viz")
     var ctx = canvas.getContext("2d")
+    canvas.width = 600
+    canvas.height = 1000
 
     document.addEventListener("mousemove",function(e) {
       with(ctx) {
@@ -27,7 +29,7 @@
         clearRect(0,0,canvas.width,canvas.height)
         fillStyle="#a0a"
         beginPath()
-          arc(x-10,x-10,20,0,Math.PI*2,false)
+          arc(x-10,y-10,20,0,Math.PI*2,false)
         closePath()
         fill()
       }
