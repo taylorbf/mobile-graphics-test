@@ -1,0 +1,38 @@
+<html>
+<body>
+
+  <svg width="600" height="1000">
+    <circle id="innerCircle" cx="50" cy="50" r="40" fill="green" />
+  </svg>
+
+  <script>
+
+    var circle = document.getElementById("innerCircle")
+
+    x = 0
+    y = 0
+
+    document.addEventListener("mousemove",function(e) {
+        x = e.pageX;
+        y = e.pageY;
+    })
+    document.addEventListener("touchmove",function(e) {
+
+      x = e.targetTouches[0].pageX;
+      y = e.targetTouches[0].pageY;
+
+      e.preventDefault()
+    })
+
+
+    function move() {
+      circle.setAttribute("cx",x)
+      circle.setAttribute("cy",y)
+      window.requestAnimationFrame(move)
+
+    }
+    window.requestAnimationFrame(move)
+
+  </script>
+</body>
+</html>

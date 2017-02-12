@@ -1,0 +1,55 @@
+<html>
+<body>
+
+  <svg width="500" height="100" id="viz">
+  </svg>
+
+  <script>
+
+    var viz = document.getElementById("viz")
+
+    for (var i=0;i<500;i++) {
+      circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle')
+      circle.setAttribute("cx",~~(Math.random()*500))
+      circle.setAttribute("cy",~~(Math.random()*100))
+      circle.setAttribute("r",~~(Math.random()*5))
+      circle.setAttribute("fill","black")
+      viz.appendChild(circle)
+    }
+
+    x = 0
+    y = 0
+
+    circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle')
+    circle.setAttribute("cx",~~(Math.random()*1000))
+    circle.setAttribute("cy",~~(Math.random()*600))
+    circle.setAttribute("r",50)
+    circle.setAttribute("fill","green")
+    circle.setAttribute("fill-opacity","0.4")
+    circle.setAttribute("stroke","green")
+    viz.appendChild(circle)
+
+    document.addEventListener("mousemove",function(e) {
+        x = e.pageX;
+        y = e.pageY;
+    })
+    document.addEventListener("touchmove",function(e) {
+
+      x = e.targetTouches[0].pageX;
+      y = e.targetTouches[0].pageY;
+
+      e.preventDefault()
+    })
+
+
+    function move() {
+      circle.setAttribute("cx",x)
+      circle.setAttribute("cy",y)
+      window.requestAnimationFrame(move)
+
+    }
+    window.requestAnimationFrame(move)
+
+  </script>
+</body>
+</html>
