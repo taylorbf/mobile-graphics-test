@@ -18,6 +18,10 @@
       rect.addEventListener("mousedown",function() {
         this.setAttribute("fill","green")
       }.bind(rect))
+      rect.addEventListener("touchstart",function(e) {
+        this.setAttribute("fill","green")
+        e.stopPropogation()
+      }.bind(rect))
       viz.appendChild(rect)
     }
 
