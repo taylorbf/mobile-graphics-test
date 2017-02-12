@@ -20,7 +20,8 @@
       }.bind(rect))
       rect.addEventListener("touchstart",function(e) {
         this.setAttribute("fill","green")
-        e.stopPropogation()
+        e.stopPropagation()
+        e.preventDefault()
       }.bind(rect))
       viz.appendChild(rect)
     }
