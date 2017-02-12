@@ -1,0 +1,29 @@
+<html>
+<body>
+
+  <svg width="500" height="1000" id="viz">
+  </svg>
+
+  <script>
+
+    var viz = document.getElementById("viz")
+
+    for (var i=0;i<1200;i++) {
+      rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect')
+      rect.setAttribute("x", (i*20)%600)
+      rect.setAttribute("y", ~~(i/30)*20)
+      rect.setAttribute("width",20)
+      rect.setAttribute("height",20)
+      rect.setAttribute("fill","#eee")
+      rect.addEventListener("mousedown",function() {
+        this.setAttribute("fill","green")
+      }.bind(rect))
+      viz.appendChild(rect)
+    }
+
+    x = 0
+    y = 0
+
+  </script>
+</body>
+</html>
